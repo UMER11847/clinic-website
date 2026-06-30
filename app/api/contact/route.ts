@@ -1,7 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+function getResendClient() {
+  const apiKey = process.env.RESEND_API_KEY
+  if (!apiKey) {
+    return null
+  }
+
+  return new Resend(apiKey)
+}
 
 const SESSION_FORMAT_LABELS: Record<string, string> = {
   'in-person-dha': 'In-Person — DHA, Karachi',
@@ -73,10 +80,16 @@ export async function POST(request: NextRequest) {
     const submittedAt = formatDate(new Date())
     const toEmail = process.env.CONTACT_TO_EMAIL
     const fromEmail = process.env.CONTACT_FROM_EMAIL || 'noreply@yourdomain.com'
+    const resend = getResendClient()
 
     if (!toEmail) {
       console.error('[Contact API] CONTACT_TO_EMAIL environment variable is not set.')
       return NextResponse.json({ error: 'Server configuration error.' }, { status: 500 })
+    }
+
+    if (!resend) {
+      console.error('[Contact API] RESEND_API_KEY environment variable is not set.')
+      return NextResponse.json({ error: 'Email service is not configured.' }, { status: 500 })
     }
 
     const sessionFormatLabel = SESSION_FORMAT_LABELS[sessionFormat] ?? sessionFormat
