@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { ExternalLink } from 'lucide-react'
 
 // Replace this with your actual Calendly URL
-const CALENDLY_URL = 'https://calendly.com/YOUR-CALENDLY-LINK'
+const CALENDLY_URL = 'https://calendly.com/eishausmani6/30min'
 
 export default function Booking() {
   useEffect(() => {

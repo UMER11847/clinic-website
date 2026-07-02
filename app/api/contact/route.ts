@@ -184,7 +184,7 @@ export async function POST(request: NextRequest) {
         replyTo: email,
       }),
       resend.emails.send({
-        from: `Dr. [Therapist Name] <${fromEmail}>`,
+        from: `Dr. [eisha usmani] <${fromEmail}>`,
         to: email,
         subject: 'Your message has been received',
         html: clientEmailHtml,

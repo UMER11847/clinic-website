@@ -47,7 +47,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-background/95 backdrop-blur-sm border-b border-border shadow-sm'
+          ? 'bg-background/70 backdrop-blur-xl border-b border-border/40 shadow-sm'
           : 'bg-transparent'
       }`}
     >
@@ -61,7 +61,7 @@ export default function Navbar() {
           className="font-sans text-lg font-semibold text-foreground tracking-tight hover:text-primary transition-colors"
           onClick={handleNavClick}
         >
-          <span className="text-primary">Dr.</span> [Therapist Name]
+          <span className="text-primary">Dr.</span> Eisha usmani
         </Link>
 
         {/* Desktop nav */}

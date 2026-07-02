@@ -5,14 +5,14 @@ const contactDetails = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'contact@[yourclinic].com',
-    href: 'mailto:contact@[yourclinic].com',
+    value: 'psych_health@outlook.com',
+    href: 'mailto:psych_health@outlook.com',
   },
   {
     icon: Phone,
     label: 'Phone / WhatsApp',
-    value: '+92 300 0000000',
-    href: 'tel:+923000000000',
+    value: '+92 310 0201843',
+    href: 'https://wa.me/923100201843',
   },
   {
     icon: MapPin,
@@ -79,6 +79,8 @@ export default function Contact() {
                     {detail.href ? (
                       <a
                         href={detail.href}
+                        target={detail.href?.startsWith('http') ? '_blank' : undefined}
+                        rel={detail.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
                         className="text-sm text-foreground hover:text-primary transition-colors"
                       >
                         {detail.value}

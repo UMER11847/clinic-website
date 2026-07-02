@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import emailjs from '@emailjs/browser'
 import { Send, CheckCircle2, AlertCircle } from 'lucide-react'
 
 type FormState = 'idle' | 'loading' | 'success' | 'error'
@@ -78,10 +79,20 @@ function InputField({
 const inputClass =
   'w-full px-4 py-3 rounded-xl border border-input bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200'
 
+const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+
 export default function ContactForm() {
   const [formData, setFormData] = useState<FormData>(initialFormData)
   const [formState, setFormState] = useState<FormState>('idle')
   const formRef = useRef<HTMLFormElement>(null)
+
+  useEffect(() => {
+    if (publicKey) {
+      emailjs.init(publicKey)
+    }
+  }, [publicKey])
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -103,21 +114,38 @@ export default function ContactForm() {
     setFormState('loading')
 
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      })
-
-      if (!res.ok) {
-        const data = await res.json()
-        throw new Error(data.error || 'Submission failed')
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('EmailJS configuration is missing.')
       }
+
+      const selectedSessionFormat = sessionFormats.find(
+        (option) => option.value === formData.sessionFormat
+      )
+      const selectedService = serviceOptions.find(
+        (option) => option.value === formData.serviceInterest
+      )
+      const selectedContactMethod = contactMethods.find(
+        (option) => option.value === formData.contactMethod
+      )
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone || 'Not provided',
+        session_format: selectedSessionFormat?.label || formData.sessionFormat,
+        service_interest: selectedService?.label || formData.serviceInterest,
+        contact_method: selectedContactMethod?.label || formData.contactMethod,
+        message: formData.message,
+        consent: formData.consent ? 'Yes' : 'No',
+      }
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey)
 
       setFormState('success')
       setFormData(initialFormData)
       formRef.current?.reset()
-    } catch {
+    } catch (error) {
+      console.error('EmailJS submission error:', error)
       setFormState('error')
     }
   }
@@ -216,7 +244,7 @@ export default function ContactForm() {
             id="phone"
             name="phone"
             autoComplete="tel"
-            placeholder="+92 300 0000000"
+            placeholder="+92 310 0201843"
             value={formData.phone}
             onChange={handleChange}
             className={inputClass}

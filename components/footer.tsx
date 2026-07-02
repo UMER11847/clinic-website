@@ -16,7 +16,7 @@ export default function Footer() {
           {/* Clinic info */}
           <div>
             <p className="font-sans text-lg font-semibold text-primary-foreground mb-2">
-              Dr. [Therapist Name]
+              Dr. [Eisha Usmani]
             </p>
             <p className="text-sm text-primary-foreground/60 mb-1">Clinical Psychologist</p>
             <p className="text-sm text-primary-foreground/60 mb-1">MPhil Clinical Psychology</p>
@@ -36,19 +36,22 @@ export default function Footer() {
               <li className="flex items-center gap-3 text-sm">
                 <Mail className="w-4 h-4 text-primary-foreground/40 shrink-0" aria-hidden="true" />
                 <a
-                  href="mailto:contact@[yourclinic].com"
+                  href="mailto:psych_health@outlook.com"
                   className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
                 >
-                  contact@[yourclinic].com
+                  psych_health@outlook.com
                 </a>
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <Phone className="w-4 h-4 text-primary-foreground/40 shrink-0" aria-hidden="true" />
                 <a
-                  href="tel:+923000000000"
+                  href="https://wa.me/923100201843"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
                 >
-                  +92 300 0000000
+                  +92 310 0201843
+
                 </a>
               </li>
               <li className="flex items-center gap-3 text-sm text-primary-foreground/70">
