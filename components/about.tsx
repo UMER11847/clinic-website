@@ -15,7 +15,6 @@ const credentials = [
     title: 'Professional Affiliations',
     items: [
       'Allied Health Professions Council (AHPC)',
-      'Registered with AHPC',
       'Affiliated with Pakistan Psychological Association (PPA)',
       'Member, Pakistan Association of Clinical Psychologists (PACP)',
       'Member, EMDR Pakistan, EMDR Asia, EMDR Europe',
@@ -25,9 +24,9 @@ const credentials = [
     icon: BookOpen,
     title: 'Research Article',
     items: [
-      'Using EMDR to Treat Rape trauma and associated Self0-Disgust: A Case Study at Journal of EMDR Asia (JEA), 2024',
-      'Published research in Journal of EMDR Asia, 2024',
-      'Conference presentations at EMDR National Conference, 2023',
+      { type: 'title', text: 'Using EMDR to Treat Rape trauma and associated Self0-Disgust: A Case Study at Journal of EMDR Asia (JEA), 2024' },
+      { type: 'item', text: 'Published research in Journal of EMDR Asia, 2024' },
+      { type: 'item', text: 'Conference presentations at EMDR National Conference, 2023' },
     ],
   },
   {
@@ -36,7 +35,7 @@ const credentials = [
     items: [
       '9+ years of clinical practice',
       '2,000+ documented clinical hours',
-      'Work with individuals, couples, and of age 17+',
+      'Work with individuals, couples above age 17',
     ],
   },
 ]
@@ -79,15 +78,25 @@ export default function About() {
                   </h3>
                 </div>
                 <ul className="space-y-2.5" role="list">
-                  {section.items.map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                      <span
-                        aria-hidden="true"
-                        className="mt-1.5 w-1.5 h-1.5 rounded-full bg-sage shrink-0"
-                      />
-                      {item}
-                    </li>
-                  ))}
+                  {section.items.map((item) => {
+                    const isTitle = typeof item === 'object' && item.type === 'title'
+                    const content = typeof item === 'string' ? item : item.text
+
+                    return (
+                      <li
+                        key={content}
+                        className={`flex items-start gap-2.5 text-sm ${isTitle ? 'font-semibold text-foreground' : 'text-muted-foreground'}`}
+                      >
+                        {!isTitle && (
+                          <span
+                            aria-hidden="true"
+                            className="mt-1.5 w-1.5 h-1.5 rounded-full bg-sage shrink-0"
+                          />
+                        )}
+                        {content}
+                      </li>
+                    )
+                  })}
                 </ul>
               </div>
             )
