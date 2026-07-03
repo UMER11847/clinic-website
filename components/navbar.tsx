@@ -4,6 +4,24 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Menu, Moon, Sun, X } from 'lucide-react'
 
+function InstagramIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" {...props}>
+      <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" />
+      <circle cx="12" cy="12" r="4.2" />
+      <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
+
+function LinkedInIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M6.94 8.5A1.56 1.56 0 1 0 6.94 5.38a1.56 1.56 0 0 0 0 3.12ZM5.5 9.75h2.88V18H5.5zM10.3 9.75h2.76v1.12h.04c.38-.72 1.32-1.48 2.72-1.48 2.91 0 3.45 1.91 3.45 4.4V18H16.4v-7.54c0-1.8-.03-4.11-2.5-4.11-2.5 0-2.88 1.95-2.88 3.96V18H10.3z" />
+    </svg>
+  )
+}
+
 const navLinks = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
@@ -11,6 +29,19 @@ const navLinks = [
   { label: 'Approaches', href: '#modalities' },
   { label: 'Book', href: '#book' },
   { label: 'Contact', href: '#contact' },
+]
+
+const socialLinks = [
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/eisha.usmani?igsh=MTh5bm14M200dng5Zw==',
+    icon: InstagramIcon,
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/eisha-usmani-479968101/',
+    icon: LinkedInIcon,
+  },
 ]
 
 export default function Navbar() {
@@ -88,6 +119,24 @@ export default function Navbar() {
             {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
 
+          <div className="flex items-center gap-2">
+            {socialLinks.map((social) => {
+              const Icon = social.icon
+              return (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-background/80 text-foreground shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/20 hover:bg-primary/10 hover:text-primary"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              )
+            })}
+          </div>
+
           <a
             href="#book"
             className="inline-flex items-center px-5 py-2.5 rounded-full text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-200"
@@ -135,6 +184,24 @@ export default function Navbar() {
               >
                 {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
               </button>
+              <div className="flex items-center gap-2">
+                {socialLinks.map((social) => {
+                  const Icon = social.icon
+                  return (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
+                      onClick={handleNavClick}
+                      className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-background/80 text-foreground shadow-sm transition-all duration-200 hover:border-primary/20 hover:bg-primary/10 hover:text-primary"
+                    >
+                      <Icon className="h-4 w-4" />
+                    </a>
+                  )
+                })}
+              </div>
               <a
                 href="#book"
                 onClick={handleNavClick}
