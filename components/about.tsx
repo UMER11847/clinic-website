@@ -12,8 +12,9 @@ const credentials = [
   },
   {
     icon: Award,
-    title: 'Professional Registrations',
+    title: 'Professional Affiliations',
     items: [
+      'Allied Health Professions Council (AHPC)',
       'Registered with AHPC',
       'Affiliated with Pakistan Psychological Association (PPA)',
       'Member, Pakistan Association of Clinical Psychologists (PACP)',
@@ -22,8 +23,9 @@ const credentials = [
   },
   {
     icon: BookOpen,
-    title: 'Research & Publications',
+    title: 'Research Article',
     items: [
+      'Using EMDR to Treat Rape trauma and associated Self0-Disgust: A Case Study at Journal of EMDR Asia (JEA), 2024',
       'Published research in Journal of EMDR Asia, 2024',
       'Conference presentations at EMDR National Conference, 2023',
     ],
@@ -32,9 +34,9 @@ const credentials = [
     icon: Users,
     title: 'Clinical Experience',
     items: [
-      '8+ years of clinical practice',
-      '1,500+ documented clinical hours',
-      'Work with individuals, couples, and mental health professionals',
+      '9+ years of clinical practice',
+      '2,000+ documented clinical hours',
+      'Work with individuals, couples, and of age 17+',
     ],
   },
 ]

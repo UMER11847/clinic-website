@@ -3,7 +3,7 @@ import { MapPin, Video } from 'lucide-react'
 const formats = [
   {
     icon: MapPin,
-    title: 'In-Person — DHA Branch',
+    title: 'In-Person — DHA Phase 8 (friday)',
     subtitle: 'Defence Housing Authority, Karachi',
     description:
       'Face-to-face sessions in a private, confidential, and comfortable clinical setting in DHA Karachi.',
@@ -11,8 +11,8 @@ const formats = [
   },
   {
     icon: MapPin,
-    title: 'In-Person — PECHS Branch',
-    subtitle: 'P.E.C.H.S, Karachi',
+    title: 'In-Person — PECHS Branch (tuesday & Saturday)',
+    subtitle: '189R block 2,P.E.C.H.S, Karachi',
     description:
       'In-person sessions available at the PECHS location, providing accessible care across Karachi.',
     highlight: false,

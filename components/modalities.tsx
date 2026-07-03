@@ -94,9 +94,11 @@ export default function Modalities() {
           <div className="inline-block bg-card border border-border rounded-2xl px-8 py-6 max-w-lg">
             <p className="font-sans text-sm font-semibold text-foreground mb-2">Who I Work With</p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              I work primarily with <strong className="text-foreground">late adolescents, adults, and couples</strong>.
-              Sessions are available for individuals, couples, and mental health professionals
-              seeking supervision or training.
+              <strong className="text-foreground">I work primarily with</strong>
+              <br />
+              late adolescents 17+ <br />
+              Adults <br />
+              Couples
             </p>
           </div>
         </div>

@@ -32,7 +32,6 @@ const services = [
     items: [
       'Marital and relationship counseling',
       'Conflict resolution',
-      'Gottman Method-based interventions',
       'Emotional abuse recovery within relationships',
     ],
   },
@@ -50,12 +49,18 @@ const services = [
   },
   {
     icon: GraduationCap,
-    title: 'Clinical Supervision & Training',
+    title: 'Clinical Supervision',
     description:
       'Structured supervision and development support for therapists and interns.',
     items: [
+      'support clinical growth and reflective practice',
+      'enhance competence, confidence, and ethical decision-making',
+      'provide a space for case cosultation, emotional processing, and skill refinement',
+      'promote client saftey and quality of care',
+      'encourage ongoing learning and professional identity development',
+      'guidance, mentorship and feedback',
       'Clinical supervision for therapists and interns',
-      'Therapist development and skill-building workshops',
+      'Therapist development and skill-building',
       'Ethics and reflective practice training',
     ],
   },
@@ -70,6 +75,7 @@ const services = [
       'Divorce recovery support',
       'Mental health and well-being seminars',
       'Stress management workshops',
+      'customized according to the needs',
     ],
   },
   {
@@ -88,13 +94,12 @@ const services = [
   },
   {
     icon: BookOpen,
-    title: 'Guest Lectures & Academic Teaching',
+    title: 'Guest Speaker Sessions and lectures',
     description:
-      'Engaging academic contributions for universities, nursing institutions, and seminars.',
+      'Engaging academic contributions for universities, institutions, and seminars.',
     items: [
       'Guest lectures for universities',
-      'Teaching for nursing institutions',
-      'Academic mental health seminars',
+      'Mental health seminars',
     ],
   },
 ]

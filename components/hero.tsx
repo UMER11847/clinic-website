@@ -56,8 +56,7 @@ export default function Hero() {
           {/* Headline */}
           <h1 className="font-sans text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-tight text-balance mb-6">
             Compassionate,{' '}
-            <span className="text-primary">evidence-based</span> therapy for
-            individuals, couples, and mental health professionals.
+            <span className="text-primary">evidence-based</span> therapy 
           </h1>
 
           {/* Subtext */}
@@ -99,9 +98,9 @@ export default function Hero() {
         {/* Credential highlights row */}
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { value: '8+', label: 'Years of experience' },
-            { value: '1,500+', label: 'Clinical hours' },
-            { value: 'EMDR', label: 'Europe Advanced Accredited' },
+            { value: '9+', label: 'Years of experience' },
+            { value: '2000+', label: 'Clinical hours' },
+            { value: 'CCS', label: 'certified clinical supervisor' },
             { value: 'MPhil', label: 'Clinical Psychology' },
           ].map((stat) => (
             <div
