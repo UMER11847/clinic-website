@@ -16,7 +16,7 @@ export default function Footer() {
           {/* Clinic info */}
           <div>
             <p className="font-sans text-lg font-semibold text-primary-foreground mb-2">
-              Dr. [Eisha Usmani]
+              Eisha Usmani
             </p>
             <p className="text-sm text-primary-foreground/60 mb-1">Clinical Psychologist</p>
             <p className="text-sm text-primary-foreground/60 mb-1">MPhil Clinical Psychology</p>
