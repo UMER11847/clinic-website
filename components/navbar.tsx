@@ -61,7 +61,7 @@ export default function Navbar() {
           className="font-sans text-lg font-semibold text-foreground tracking-tight hover:text-primary transition-colors"
           onClick={handleNavClick}
         >
-          <span className="text-primary">Dr.</span> Eisha usmani
+          <span className="text-primary"></span> Eisha usmani
         </Link>
 
         {/* Desktop nav */}
